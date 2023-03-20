@@ -54,6 +54,7 @@ void merge(int arr[], int l, int m, int r)
 		j++;
 		k++;
 	}
+
 	free(L);
 	free(R);
 }
@@ -96,7 +97,7 @@ void insertionSort(int* pData, int n)
 			else
 			 break;
 		}
-		*(pData + j + 1) = item;
+		*(pData + j + 1) = item;	
 	}
 
 }
