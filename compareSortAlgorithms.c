@@ -6,6 +6,7 @@ int extraMemoryAllocated;
 
 void merge(int arr[], int l, int m, int r)
 {
+
 	int i, j, k;
 	int n1 = m - l + 1;
 	int n2 = r - m;
@@ -57,6 +58,7 @@ void merge(int arr[], int l, int m, int r)
 
 	free(L);
 	free(R);
+	
 }
 
 // implement merge sort
@@ -82,7 +84,7 @@ void mergeSort(int pData[], int l, int r)
 // extraMemoryAllocated counts bytes of memory allocated
 void insertionSort(int* pData, int n)
 {
-	
+
 	int i, item, j;
 	for (i = 1; i < n; i++)
 	{
