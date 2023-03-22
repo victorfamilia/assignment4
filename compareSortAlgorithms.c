@@ -56,6 +56,10 @@ void merge(int arr[], int l, int m, int r)
 		k++;
 	}
 
+	{
+		extraMemoryAllocated += (sizeof(int) * n1) + (sizeof(int) * n2);
+	}
+
 	free(L);
 	free(R);
 	
@@ -102,6 +106,9 @@ void insertionSort(int* pData, int n)
 		*(pData + j + 1) = item;	
 	}
 
+	{
+		extraMemoryAllocated = 0;
+	}
 }
 
 // implement bubble sort
@@ -122,6 +129,10 @@ void bubbleSort(int* pData, int n)
 				*(pData + j + 1) = temp;
 			}
 		}
+	}
+
+	{
+		extraMemoryAllocated = 0;
 	}
 
 }
@@ -146,6 +157,10 @@ void selectionSort(int* pData, int n)
 		*(pData + min_idx) = temp;
 	}
 
+	{
+		extraMemoryAllocated = 0;
+	}
+	
 }
 
 // parses input file to an integer array
