@@ -12,17 +12,22 @@ void merge(int arr[], int l, int m, int r)
 	int n1 = m - l + 1;
 	int n2 = r - m;
 
-	/* create temp arrays */
+	// create temp arrays
 	int *L = (int*) malloc(n1*sizeof(int));
 	int *R = (int*) malloc(n2*sizeof(int));
 
-	/* Copy data to temp arrays L[] and R[] */
+		//calculates extraMemoryAllocated
+		{
+			extraMemoryAllocated += (sizeof(int) * n1) + (sizeof(int) * n2);
+		}
+
+	// Copy data to temp arrays L[] and R[]
 	for (i = 0; i < n1; i++)
 		L[i] = arr[l + i];
 	for (j = 0; j < n2; j++)
 		R[j] = arr[m + 1+ j];
 
-	/* Merge the temp arrays back into arr[l..r]*/
+	// Merge the temp arrays back into arr[l..r]
 	i = 0; // Initial index of first subarray
 	j = 0; // Initial index of second subarray
 	k = l; // Initial index of merged subarray
@@ -40,25 +45,19 @@ void merge(int arr[], int l, int m, int r)
 		}
 		k++;
 	}
-	/* Copy the remaining elements of L[], if there
-	are any */
+	// Copy the remaining elements of L[], if there are any
 	while (i < n1)
 	{
 		arr[k] = L[i];
 		i++;
 		k++;
 	}	
-	/* Copy the remaining elements of R[], if there
-	are any */
+	// Copy the remaining elements of R[], if there are any
 	while (j < n2)
 	{
 		arr[k] = R[j];
 		j++;
 		k++;
-	}
-
-	{
-		extraMemoryAllocated += (sizeof(int) * n1) + (sizeof(int) * n2);
 	}
 
 	free(L);
@@ -107,9 +106,6 @@ void insertionSort(int* pData, int n)
 		*(pData + j + 1) = item;	
 	}
 
-	{
-		extraMemoryAllocated = 0;
-	}
 }
 
 // implement bubble sort
@@ -130,10 +126,6 @@ void bubbleSort(int* pData, int n)
 				*(pData + j + 1) = temp;
 			}
 		}
-	}
-
-	{
-		extraMemoryAllocated = 0;
 	}
 
 }
@@ -158,10 +150,6 @@ void selectionSort(int* pData, int n)
 		*(pData + min_idx) = temp;
 	}
 
-	{
-		extraMemoryAllocated = 0;
-	}
-	
 }
 
 // parses input file to an integer array
